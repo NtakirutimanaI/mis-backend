@@ -27,7 +27,7 @@ import { DatabaseModule } from './database/database.module';
         const baseConfig = {
           type: 'postgres' as const,
           autoLoadEntities: true,
-          synchronize: true, // Temporarily enabled to sync schema in production
+          synchronize: false, // Disable in production - use migrations
           logging: configService.get('NODE_ENV') === 'development',
           ssl: configService.get('NODE_ENV') === 'production',
           extra: configService.get('NODE_ENV') === 'production' ? {
