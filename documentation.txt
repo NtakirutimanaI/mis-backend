@@ -314,7 +314,7 @@ fetch('http://localhost:3000/profile/contact', {
 ## 📊 Project Structure
 
 ```
-who-am-i/
+mis-backend/
 ├── src/
 │   ├── modules/
 │   │   ├── auth/              # Authentication
