@@ -2,7 +2,6 @@ import 'reflect-metadata';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import express from 'express';
-import { DataSource } from 'typeorm';
 import { AppModule } from '../src/app.module';
 import { setupApp } from '../src/setup';
 
@@ -18,18 +17,6 @@ export default async function handler(req, res) {
         );
         setupApp(app);
         await app.init();
-
-        // Run pending migrations in production
-        try {
-            const dataSource = app.get(DataSource);
-            if (dataSource?.isInitialized) {
-                await dataSource.runMigrations();
-                console.log('✅ Migrations executed successfully');
-            }
-        } catch (migrationError) {
-            console.warn('⚠️ Migration failed (non-critical):', migrationError.message);
-        }
-
         cachedApp = server;
     }
     cachedApp(req, res);
