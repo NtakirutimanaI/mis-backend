@@ -90,9 +90,28 @@ Our team specializes in NestJS, TypeScript, React, Laravel, and cloud infrastruc
 
       education: [
         {
-          degree: 'ICT Solutions & Services',
-          institution: 'MIS - Make It Solutions',
+          degree: 'Custom Web Development',
+          institution: 'Full-Stack Solutions',
           graduationYear: 2020,
+          description: 'End-to-end web applications built with NestJS, React, and TypeScript — from concept to deployment, tailored to your business needs.',
+        },
+        {
+          degree: 'Mobile App Development',
+          institution: 'Cross-Platform & Native',
+          graduationYear: 2021,
+          description: 'iOS and Android applications using React Native and Flutter, delivering seamless user experiences across all devices.',
+        },
+        {
+          degree: 'Backend API & Cloud Infrastructure',
+          institution: 'Scalable Architecture',
+          graduationYear: 2022,
+          description: 'RESTful and GraphQL APIs with PostgreSQL, cloud deployment on AWS/Vercel, and DevOps automation for high-availability systems.',
+        },
+        {
+          degree: 'UI/UX Design & Frontend Engineering',
+          institution: 'Pixel-Perfect Interfaces',
+          graduationYear: 2023,
+          description: 'Modern responsive frontends with React, Vue.js, and Tailwind CSS, focused on performance, accessibility, and beautiful design.',
         },
       ],
 

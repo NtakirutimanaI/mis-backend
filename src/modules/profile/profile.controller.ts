@@ -118,9 +118,28 @@ export class ProfileController {
                 bio: 'Leading ICT solutions provider...',
                 education: [
                     {
-                        degree: 'ICT Solutions',
-                        institution: 'MIS',
-                        graduationYear: 2020
+                        degree: 'Custom Web Development',
+                        institution: 'Full-Stack Solutions',
+                        graduationYear: 2020,
+                        description: 'End-to-end web applications built with NestJS, React, and TypeScript.'
+                    },
+                    {
+                        degree: 'Mobile App Development',
+                        institution: 'Cross-Platform & Native',
+                        graduationYear: 2021,
+                        description: 'iOS and Android apps using React Native and Flutter.'
+                    },
+                    {
+                        degree: 'Backend API & Cloud Infrastructure',
+                        institution: 'Scalable Architecture',
+                        graduationYear: 2022,
+                        description: 'RESTful/GraphQL APIs, cloud deployment, and DevOps automation.'
+                    },
+                    {
+                        degree: 'UI/UX Design & Frontend Engineering',
+                        institution: 'Pixel-Perfect Interfaces',
+                        graduationYear: 2023,
+                        description: 'Modern responsive frontends with React, Vue.js, and Tailwind CSS.'
                     }
                 ],
                 skills: {

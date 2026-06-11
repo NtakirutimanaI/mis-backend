@@ -73,9 +73,10 @@ export class Profile {
     education: Array<{
         degree: string;
         institution: string;
-        field: string;
-        graduationYear: number;
+        field?: string;
+        graduationYear?: number;
         location?: string;
+        description?: string;
     }>;
 
     @Column({ type: 'json', nullable: true })
