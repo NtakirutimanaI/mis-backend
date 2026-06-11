@@ -19,7 +19,7 @@ import { EventsModule } from '../events/events.module';
             useFactory: (configService: ConfigService) => ({
                 secret: configService.get('JWT_SECRET'),
                 signOptions: {
-                    expiresIn: configService.get('JWT_EXPIRES_IN'),
+                    expiresIn: configService.get('JWT_EXPIRES_IN', '7d'),
                 },
             }),
             inject: [ConfigService],
