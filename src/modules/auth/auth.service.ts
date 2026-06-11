@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException, ConflictException, NotFoundException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, ConflictException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
@@ -66,10 +66,6 @@ export class AuthService {
     }
 
     async login(loginDto: LoginDto) {
-        if (loginDto.email !== 'info@makeitsolutions.rw') {
-            throw new UnauthorizedException('Invalid credentials');
-        }
-
         const user = await this.userRepository.findOne({
             where: { email: loginDto.email },
             relations: ['profile'],
@@ -134,6 +130,21 @@ export class AuthService {
             success: true,
             message: 'Password changed successfully',
         };
+    }
+
+    async getAllUsers(requestUserId: string) {
+        const admin = await this.userRepository.findOne({ where: { id: requestUserId } });
+        if (!admin || admin.email !== 'info@makeitsolutions.rw') {
+            throw new ForbiddenException('Only the admin can view all users');
+        }
+        const users = await this.userRepository.find({
+            relations: ['profile'],
+            order: { createdAt: 'DESC' },
+        });
+        return users.map(u => {
+            const { password, refreshToken, ...userData } = u;
+            return userData;
+        });
     }
 
     async validateUser(userId: string): Promise<User> {

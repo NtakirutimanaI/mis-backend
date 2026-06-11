@@ -1,4 +1,4 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Body, HttpCode, HttpStatus, UseGuards, Request } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiBearerAuth } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { RegisterDto } from './dto/register.dto';
@@ -69,6 +69,16 @@ export class AuthController {
     @ApiResponse({ status: 401, description: 'Invalid credentials' })
     async login(@Body() loginDto: LoginDto) {
         return this.authService.login(loginDto);
+    }
+
+    @Get('users')
+    @UseGuards(JwtAuthGuard)
+    @ApiBearerAuth('JWT-auth')
+    @ApiOperation({ summary: 'Get all registered users (admin only)' })
+    @ApiResponse({ status: 200, description: 'Users retrieved successfully' })
+    @ApiResponse({ status: 403, description: 'Forbidden - admin only' })
+    async getAllUsers(@Request() req) {
+        return this.authService.getAllUsers(req.user.id);
     }
 
     @Post('change-password')
