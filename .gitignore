@@ -29,3 +29,6 @@ api/*.js
 api/*.d.ts
 api/*.js.map
 .vercel
+
+# Vercel
+.env.vercel
