@@ -113,11 +113,11 @@ export class ChatService {
 
         // 1. Greetings & Basics
         if (query.match(/\b(hi|hello|hey|good morning|good evening)\b/)) {
-            return `Hello! I'm ${profile.firstName}'s automated assistant. Ask me anything about ${profile.firstName}'s skills, projects, experience, or how to get in touch.`;
+            return `Hello! I'm MIS virtual assistant. Ask me about our services, projects, or how to get in touch with us.`;
         }
 
         if (query.match(/\b(who are you|what are you)\b/)) {
-            return "I am an AI assistant integrated into this portfolio to help answer your questions about Innocent.";
+            return "I am an AI assistant for MAKE IT SOLUTIONS (MIS) - an ICT company. I can help answer your questions about our services and projects.";
         }
 
         if (query.match(/\b(thank|thanks)\b/)) {
@@ -125,21 +125,21 @@ export class ChatService {
         }
 
         // 2. Bio / About
-        if (query.match(/\b(who is innocent|tell me about innocent|bio|background|about yourself|summary)\b/)) {
-            return profile.bio || `${profile.firstName} is a ${profile.title} with ${profile.yearsOfExperience} years of experience.`;
+        if (query.match(/\b(who is mis|tell me about mis|about|company|background|summary)\b/)) {
+            return profile.bio || `MAKE IT SOLUTIONS (MIS) is an ICT company with ${profile.yearsOfExperience} years of experience.`;
         }
 
         // 3. Contact Information
-        if (query.match(/\b(contact|email|phone|address|reach|location|where do you live)\b/)) {
+        if (query.match(/\b(contact|email|phone|address|reach|location)\b/)) {
             const loc = [profile.city, profile.country].filter(Boolean).join(', ');
-            return `You can reach ${profile.firstName} at ${profile.email}. ${profile.phone ? `Call at ${profile.phone}.` : ''} Location: ${loc || 'Remote'}.`;
+            return `You can reach us at ${profile.email}. ${profile.phone ? `Call us at ${profile.phone}.` : ''} Location: ${loc || 'Remote'}.`;
         }
 
         // 4. Hiring / Availability
         if (query.match(/\b(hire|available|job|freelance|work for me)\b/)) {
             return profile.availableForHire
-                ? `Yes! ${profile.firstName} is currently available for new opportunities. Please send a message via the Contact section!`
-                : `${profile.firstName} is not explicitly looking for new roles right now, but it's always worth saying hi via the Contact form.`;
+                ? `Yes! MIS is currently available for new projects. Please send a message via the Contact section!`
+                : `MIS is not taking new projects right now, but feel free to reach out via the Contact form.`;
         }
 
         // 5. Skills & Technologies (Deep Search)
@@ -154,12 +154,12 @@ export class ChatService {
         // Check if query asks for a specific skill
         const matchedSkill = allSkills.find(skill => query.includes(skill.toLowerCase()));
         if (matchedSkill) {
-            return `Yes, ${profile.firstName} is experienced with ${matchedSkill}. It is one of the core technologies in the stack.`;
+            return `Yes, MIS is experienced with ${matchedSkill}. It is one of our core technologies.`;
         }
 
         if (query.match(/\b(skill|stack|tech|technologies|language|framework)\b/)) {
             const topSkills = allSkills.slice(0, 8).join(', ');
-            return `${profile.firstName} worked with: ${topSkills} and more.`;
+            return `MIS works with: ${topSkills} and more.`;
         }
 
         // 6. Projects (Deep Search)
@@ -178,17 +178,17 @@ export class ChatService {
         // 7. Experience / Education
         if (query.match(/\b(experience|history|companies|work|job)\b/)) {
             const lastJob = profile.experience?.[0];
-            return `${profile.firstName} has ${profile.yearsOfExperience} years of experience. ${lastJob ? `Most recently worked as ${lastJob.title} at ${lastJob.company}.` : ''}`;
+            return `MIS has ${profile.yearsOfExperience} years of experience. ${lastJob ? `Learn more about our work in the Experience section.` : ''}`;
         }
 
         if (query.match(/\b(education|university|college|degree|study)\b/)) {
             const edu = profile.education?.[0];
             return edu
-                ? `${profile.firstName} studied ${edu.degree} in ${edu.field} at ${edu.institution}.`
-                : `${profile.firstName} has a strong educational background in technology.`;
+                ? `Our team studied at ${edu.institution}.`
+                : `Our team has a strong educational background in technology.`;
         }
 
         // 8. Fallback
-        return "I'm not exactly sure about that detail, but I can tell you about Innocent's skills, projects, experience, or contact info. What would you like to know?";
+        return "I'm not exactly sure about that detail, but I can tell you about MIS services, projects, or contact info. What would you like to know?";
     }
 }

@@ -66,7 +66,7 @@ export class AuthService {
     }
 
     async login(loginDto: LoginDto) {
-        if (loginDto.email !== 'innocentntakir@gmail.com') {
+        if (loginDto.email !== 'info@makeitsolutions.rw') {
             throw new UnauthorizedException('Invalid credentials');
         }
 

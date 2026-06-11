@@ -16,13 +16,13 @@ export class DatabaseSeeder {
     private profileRepository: Repository<Profile>,
   ) {}
 
-  async seedInnocentProfile() {
-    this.logger.log('Starting to seed Innocent NTAKIRUTIMANA profile...');
+  async seedCompanyProfile() {
+    this.logger.log('Starting to seed MIS company profile...');
 
     try {
       // Check if user already exists
       const existingUser = await this.userRepository.findOne({
-        where: { email: 'innocentntakir@gmail.com' },
+        where: { email: 'info@makeitsolutions.rw' },
       });
 
       if (existingUser) {
@@ -42,11 +42,11 @@ export class DatabaseSeeder {
       }
 
       // Create new user
-      const hashedPassword = await bcrypt.hash('Innocent@2026', 10);
+      const hashedPassword = await bcrypt.hash('Mis@2026', 10);
 
       const user = this.userRepository.create({
-        email: 'innocentntakir@gmail.com',
-        username: 'innocent_ntakirutimana',
+        email: 'info@makeitsolutions.rw',
+        username: 'make_it_solutions',
         password: hashedPassword,
         isActive: true,
       });
@@ -63,8 +63,8 @@ export class DatabaseSeeder {
       await this.profileRepository.save(profile);
       this.logger.log('✓ Profile created successfully!');
       this.logger.log('═══════════════════════════════════════');
-      this.logger.log('Email: innocentntakir@gmail.com');
-      this.logger.log('Password: Innocent@2026');
+      this.logger.log('Email: info@makeitsolutions.rw');
+      this.logger.log('Password: Mis@2026');
       this.logger.log('═══════════════════════════════════════');
 
       return profile;
@@ -76,38 +76,35 @@ export class DatabaseSeeder {
 
   private getProfileData() {
     return {
-      firstName: 'Innocent',
-      lastName: 'NTAKIRUTIMANA',
-      email: 'innocentntakir@gmail.com',
-      phone: '+250 788 000 000', // Update with actual phone
-      avatar: undefined, // Can be updated later
-      title: 'Full Stack Developer',
+      firstName: 'MAKE IT',
+      lastName: 'SOLUTIONS (MIS)',
+      email: 'info@makeitsolutions.rw',
+      phone: '+250 788 000 000',
+      avatar: undefined,
+      title: 'ICT Solutions Provider',
       yearsOfExperience: 6,
 
-      bio: `Passionate Full Stack Developer with 6 years of experience building scalable web applications. 
-Graduated from the University of Rwanda in 2021 with a degree in Computer Engineering. 
-Specialized in modern backend technologies (NestJS, TypeScript, Laravel) and frontend frameworks (React, Vue). 
-Committed to writing clean, maintainable code and delivering exceptional user experiences.`,
+      bio: `MAKE IT SOLUTIONS (MIS) is a leading ICT company specializing in web development, mobile applications, and digital transformation. 
+With 6 years of experience delivering cutting-edge technology solutions, we help businesses harness the power of modern technology.
+Our team specializes in NestJS, TypeScript, React, Laravel, and cloud infrastructure to build scalable, maintainable systems.`,
 
       education: [
         {
-          degree: 'Bachelor of Science',
-          institution: 'University of Rwanda',
-          field: 'Computer Engineering',
-          graduationYear: 2021,
-          location: 'Kigali, Rwanda',
+          degree: 'ICT Solutions & Services',
+          institution: 'MIS - Make It Solutions',
+          graduationYear: 2020,
         },
       ],
 
       experience: [
         {
-          title: 'Full Stack Developer',
+          title: 'ICT Solutions Provider',
           company: 'Make It Solutions',
           location: 'Rwanda',
           startDate: '2020',
           current: true,
           description:
-            'Developing enterprise-level applications using modern tech stack. Leading backend architecture with NestJS and TypeScript, building RESTful APIs, implementing real-time features with WebSockets, and creating responsive frontends with React.',
+            'Providing enterprise-level ICT solutions using modern tech stack. Leading development of web applications, RESTful APIs, and responsive frontends for clients across various industries.',
           technologies: [
             'NestJS',
             'TypeScript',
@@ -120,13 +117,13 @@ Committed to writing clean, maintainable code and delivering exceptional user ex
           ],
         },
         {
-          title: 'Software Developer',
-          company: 'Various Projects',
+          title: 'Software Development Services',
+          company: 'MIS',
           location: 'Rwanda',
           startDate: '2018',
           endDate: '2020',
           description:
-            'Worked on multiple web development projects, gained experience in both frontend and backend technologies.',
+            'Delivered multiple web development projects for clients, building expertise in both frontend and backend technologies.',
           technologies: [
             'PHP',
             'Laravel',
@@ -179,7 +176,7 @@ Committed to writing clean, maintainable code and delivering exceptional user ex
         ],
         other: [
           'Microservices Architecture',
-          'Queue Systems (Bull)',
+          'Cloud Infrastructure',
           'Cron Jobs',
           'JWT Authentication',
           'Unit Testing (Jest)',
@@ -191,7 +188,7 @@ Committed to writing clean, maintainable code and delivering exceptional user ex
         {
           name: 'School Management System',
           description:
-            'Comprehensive school management system with modules for students, teachers, classes, attendance, exams, and fee management. Built with NestJS and TypeScript.',
+            'Comprehensive school management system with modules for students, teachers, classes, attendance, exams, and fee management.',
           technologies: [
             'NestJS',
             'TypeScript',
@@ -205,15 +202,13 @@ Committed to writing clean, maintainable code and delivering exceptional user ex
           published: true,
           category: 'Fullstack' as 'Fullstack',
           effectiveness: 90,
-          url: '',
-          githubUrl: 'https://github.com/innocentntakir/school-management',
           type: 'Client Project',
           role: 'Lead Developer',
         },
         {
-          name: 'Portfolio Website',
+          name: 'MIS Company Website',
           description:
-            'Modern personal portfolio website with admin dashboard for managing profile, projects, and contact messages. Features real-time updates and beautiful UI.',
+            'Modern company website with admin dashboard for managing profile, projects, services, and contact messages.',
           technologies: ['React', 'TypeScript', 'NestJS', 'PostgreSQL'],
           imageUrl:
             'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=1000',
@@ -221,51 +216,39 @@ Committed to writing clean, maintainable code and delivering exceptional user ex
           published: true,
           category: 'Fullstack' as 'Fullstack',
           effectiveness: 85,
-          url: 'https://innocentntakirutimana.com',
-          githubUrl: 'https://github.com/innocentntakir/portfolio',
-          type: 'Personal Project',
-          role: 'Solo Developer',
+          type: 'Company Project',
+          role: 'Development Team',
         },
       ],
 
       languages: [
         {
-          language: 'Kinyarwanda',
-          proficiency: 'Native',
-        },
-        {
           language: 'English',
-          proficiency: 'Fluent',
-        },
-        {
-          language: 'French',
-          proficiency: 'Intermediate',
+          proficiency: 'Business',
         },
       ],
 
       socialLinks: {
-        github: 'https://github.com/innocentntakir',
-        linkedin: 'https://www.linkedin.com/in/innocent-ntakirutimana',
-        twitter: 'https://twitter.com/innocentntakir',
-        website: 'https://innocentntakirutimana.com',
+        website: 'https://makeitsolutions.rw',
       },
 
       city: 'Kigali',
       country: 'Rwanda',
 
-      servicesOffered: `I offer professional web development services including:
+      servicesOffered: `MIS offers professional ICT services including:
 
 • Custom Web Application Development
 • Backend API Development (NestJS, Laravel, Node.js)
 • Frontend Development (React, Vue.js)
+• Mobile Application Development
 • Database Design & Optimization
 • E-commerce Solutions
-• Real-time Applications (WebSockets)
+• Cloud Infrastructure & DevOps
 • System Architecture & Consulting
-• Code Review & Mentoring
-• Bug Fixes & Maintenance
+• IT Consulting & Digital Transformation
+• Maintenance & Support
 
-Available for both freelance projects and full-time opportunities.`,
+Contact us to discuss your next project.`,
 
       availableForHire: true,
       isPublic: true,

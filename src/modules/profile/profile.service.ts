@@ -70,7 +70,7 @@ export class ProfileService {
     }
 
     async getPublicProfile(username?: string) {
-        // Get Innocent's profile (or profile by username)
+        // Get company profile (or profile by username)
         const profile = await this.profileRepository.findOne({
             where: username ? { user: { username } } : {},
             relations: ['user'],

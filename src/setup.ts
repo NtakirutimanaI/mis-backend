@@ -25,20 +25,19 @@ export function setupApp(app: INestApplication) {
 
     // Swagger Documentation
     const config = new DocumentBuilder()
-        .setTitle('Professional Profile API')
+        .setTitle('MIS - Make It Solutions API')
         .setDescription(
             `
-      Complete portfolio and profile management API for Innocent NTAKIRUTIMANA.
+      Complete company website management API for MAKE IT SOLUTIONS (MIS).
       
       This API provides:
-      - Public portfolio viewing
+      - Public company portfolio viewing
       - Contact/messaging system
       - Profile management
       - Authentication & authorization
-      - Real-time notifications via WebSockets
       
       **Public Endpoints** (No authentication required):
-      - GET /profile/public - View complete portfolio
+      - GET /profile/public - View complete company profile
       - POST /profile/contact - Send contact message
       
       **Protected Endpoints** (Require authentication):
@@ -47,9 +46,9 @@ export function setupApp(app: INestApplication) {
         )
         .setVersion('1.0')
         .setContact(
-            'Innocent NTAKIRUTIMANA',
-            'https://innocentntakirutimana.com',
-            'innocentntakir@gmail.com',
+            'MAKE IT SOLUTIONS (MIS)',
+            'https://makeitsolutions.rw',
+            'info@makeitsolutions.rw',
         )
         .addTag('Authentication', 'User authentication and login')
         .addTag('Profile', 'Portfolio and profile management')
@@ -70,7 +69,7 @@ export function setupApp(app: INestApplication) {
 
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api/docs', app, document, {
-        customSiteTitle: 'Innocent NTAKIRUTIMANA - API Documentation',
+        customSiteTitle: 'MIS - Make It Solutions API Documentation',
         customCss: '.swagger-ui .topbar { display: none }',
         swaggerOptions: {
             persistAuthorization: true,

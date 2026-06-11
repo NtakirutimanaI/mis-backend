@@ -102,7 +102,7 @@ export class ProfileController {
         name: 'username',
         required: false,
         description: 'Optional username to filter specific profile. If not provided, returns the first profile.',
-        example: 'innocent_ntakirutimana'
+        example: 'make_it_solutions'
     })
     @ApiResponse({
         status: 200,
@@ -110,28 +110,26 @@ export class ProfileController {
         schema: {
             example: {
                 id: '660e8400-e29b-41d4-a716-446655440001',
-                firstName: 'Innocent',
-                lastName: 'NTAKIRUTIMANA',
-                email: 'innocentntakir@gmail.com',
-                title: 'Full Stack Developer',
+                firstName: 'MAKE IT',
+                lastName: 'SOLUTIONS (MIS)',
+                email: 'info@makeitsolutions.rw',
+                title: 'ICT Solutions Provider',
                 yearsOfExperience: 6,
-                bio: 'Passionate Full Stack Developer...',
+                bio: 'Leading ICT solutions provider...',
                 education: [
                     {
-                        degree: 'Bachelor of Science',
-                        institution: 'University of Rwanda',
-                        field: 'Computer Engineering',
-                        graduationYear: 2021,
-                        location: 'Kigali, Rwanda'
+                        degree: 'ICT Solutions',
+                        institution: 'MIS',
+                        graduationYear: 2020
                     }
                 ],
                 skills: {
                     backend: ['NestJS', 'TypeScript', 'Node.js', 'Laravel', 'PHP'],
                     frontend: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Vue.js'],
-                    databases: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis']
+                    databases: ['PostgreSQL', 'MongoDB', 'MySQL']
                 },
                 projects: [],
-                servicesOffered: 'Professional web development services...',
+                servicesOffered: 'Professional ICT services...',
                 availableForHire: true
             }
         }
