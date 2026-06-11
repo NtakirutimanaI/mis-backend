@@ -79,6 +79,9 @@ export class Profile {
         description?: string;
     }>;
 
+    @Column({ type: 'text', nullable: true })
+    about: string;
+
     @Column({ type: 'json', nullable: true })
     experience: Array<{
         title: string;

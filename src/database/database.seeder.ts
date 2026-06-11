@@ -115,6 +115,8 @@ Our team specializes in NestJS, TypeScript, React, Laravel, and cloud infrastruc
         },
       ],
 
+      about: `MAKE IT SOLUTIONS (MIS) is a leading ICT company in Rwanda specializing in web development, mobile applications, and digital transformation. With 6 years of experience, we help businesses harness modern technology through custom software solutions, cloud infrastructure, and expert consulting. Our team is passionate about delivering high-quality, scalable systems that drive real business value.`,
+
       experience: [
         {
           title: 'ICT Solutions Provider',

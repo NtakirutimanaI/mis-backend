@@ -111,6 +111,10 @@ export class UpdateProfileDto {
     education?: any[];
 
     @IsOptional()
+    @IsString()
+    about?: string;
+
+    @IsOptional()
     @IsArray()
     experience?: any[];
 
