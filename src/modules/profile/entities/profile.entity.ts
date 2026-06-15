@@ -134,6 +134,13 @@ export class Profile {
     }>;
 
     @Column({ type: 'json', nullable: true })
+    teamMembers: Array<{
+        name: string;
+        role: string;
+        imageUrl?: string;
+    }>;
+
+    @Column({ type: 'json', nullable: true })
     socialLinks: {
         twitter?: string;
         linkedin?: string;

@@ -59,6 +59,10 @@ export class UpdateProfileDto {
 
     @IsOptional()
     @IsString()
+    email?: string;
+
+    @IsOptional()
+    @IsString()
     phone?: string;
 
     @IsOptional()
@@ -133,6 +137,10 @@ export class UpdateProfileDto {
     @IsOptional()
     @IsArray()
     languages?: any[];
+
+    @IsOptional()
+    @IsArray()
+    teamMembers?: any[];
 
     @IsOptional()
     @IsObject()

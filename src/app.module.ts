@@ -27,10 +27,10 @@ import { DatabaseModule } from './database/database.module';
         const baseConfig = {
           type: 'postgres' as const,
           autoLoadEntities: true,
-          synchronize: false, // Disable in production - use migrations
+          synchronize: false,
           logging: configService.get('NODE_ENV') === 'development',
-          ssl: configService.get('NODE_ENV') === 'production',
-          extra: configService.get('NODE_ENV') === 'production' ? {
+          ssl: !!dbUrl || configService.get('NODE_ENV') === 'production',
+          extra: !!dbUrl || configService.get('NODE_ENV') === 'production' ? {
             ssl: {
               rejectUnauthorized: false,
             },
