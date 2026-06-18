@@ -240,6 +240,34 @@ Our team specializes in NestJS, TypeScript, React, Laravel, and cloud infrastruc
           type: 'Company Project',
           role: 'Development Team',
         },
+        {
+          name: 'Interior Design Studio',
+          description:
+            'Full-service interior design platform with 3D room visualization, material selection, and contractor coordination tools.',
+          technologies: ['React', 'Three.js', 'Node.js', 'MongoDB'],
+          imageUrl:
+            'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&q=80&w=1000',
+          featured: true,
+          published: true,
+          category: 'Fullstack' as 'Fullstack',
+          effectiveness: 88,
+          type: 'Client Project',
+          role: 'Lead Developer',
+        },
+        {
+          name: 'Smart City Platform',
+          description:
+            'Urban infrastructure monitoring system integrating IoT sensors, real-time analytics, and predictive maintenance.',
+          technologies: ['Next.js', 'Python', 'InfluxDB', 'Docker'],
+          imageUrl:
+            'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1000',
+          featured: true,
+          published: true,
+          category: 'Fullstack' as 'Fullstack',
+          effectiveness: 92,
+          type: 'Company Project',
+          role: 'Architecture Lead',
+        },
       ],
 
       languages: [
